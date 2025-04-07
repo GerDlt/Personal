@@ -1,0 +1,56 @@
+{
+  "campañas": [
+    {
+      "nombre": "Campaña Primavera",
+      "rutas_main": {
+        "clientes": "/data/primavera/clientes.csv"
+      },
+      "rutas_secundarias": {
+        "compras": "/data/primavera/compras.csv",
+        "visitas_web": "/data/primavera/visitas_web.csv"
+      },
+      "requirements": [
+        { "nombre_campo": "edad", "tipo": "int" },
+        { "nombre_campo": "email", "tipo": "string" },
+        { "nombre_campo": "activo", "tipo": "bool" }
+      ],
+      "target_group": [
+        {
+          "nombre": "jóvenes_activos",
+          "mask": "edad >= 18 && edad <= 30 && activo == true"
+        }
+      ],
+      "filter": [
+        {
+          "nombre": "solo_activos",
+          "condicion": "activo == true"
+        }
+      ]
+    },
+    {
+      "nombre": "Campaña Verano",
+      "rutas_main": {
+        "usuarios": "/data/verano/usuarios.csv"
+      },
+      "rutas_secundarias": {
+        "interacciones": "/data/verano/interacciones.csv"
+      },
+      "requirements": [
+        { "nombre_campo": "edad", "tipo": "int" },
+        { "nombre_campo": "ciudad", "tipo": "string" }
+      ],
+      "target_group": [
+        {
+          "nombre": "usuarios_urbanos",
+          "mask": "ciudad in ['Madrid', 'Barcelona', 'Valencia']"
+        }
+      ],
+      "filter": [
+        {
+          "nombre": "mayores_25",
+          "condicion": "edad > 25"
+        }
+      ]
+    }
+  ]
+}
